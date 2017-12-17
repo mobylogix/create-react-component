@@ -14,30 +14,18 @@ function run(name, options) {
   var js        = path.resolve(dir, name + ".js");
   var index     = path.resolve(dir, "index.js");
 
-var jsContent = `import React    from "react";
-import template from "./${name}.jsx";
+var jsContent = `import React, {Component} from "react";
+import "./${name}.${stylesExt}";
 
-class ${name} extends React.Component {
+class ${name} extends Component {
   render() {
-    return template.call(this);
+    return (
+      <div>{`Hello $name`}</div>
+    );
   }
 }
 
 export default ${name};
-`;
-
-var jsxContent = `import "./${name}.${stylesExt}";
-import React from "react";
-
-function template() {
-  return (
-    <div className="${changeCase.paramCase(name)}">
-      <h1>${name}</h1>
-    </div>
-  );
-};
-
-export default template;
 `;
 
 var indexContent = `import ${name} from "./${name}";
@@ -47,10 +35,8 @@ export default ${name};
   fs.mkdirSync("./"+name);
   fs.openSync(styles, "w");
   fs.writeSync(fs.openSync(js, "w"), jsContent);
-  fs.writeSync(fs.openSync(jsx, "w"), jsxContent);
   fs.writeSync(fs.openSync(index, "w"), indexContent);
   console.log("Finished");
-
 }
 
 program
