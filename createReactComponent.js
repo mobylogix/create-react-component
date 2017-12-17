@@ -14,7 +14,7 @@ function run(name, options) {
   var js        = path.resolve(dir, name + ".js");
   var index     = path.resolve(dir, "index.js");
 
-var jsContent = `import React, {Component} from "react";
+var jsxContent = `import React, {Component} from "react";
 import "./${name}.${stylesExt}";
 
 class ${name} extends Component {
@@ -34,7 +34,7 @@ export default ${name};
 
   fs.mkdirSync("./"+name);
   fs.openSync(styles, "w");
-  fs.writeSync(fs.openSync(js, "w"), jsContent);
+  fs.writeSync(fs.openSync(jsx, "w"), jsxContent);
   fs.writeSync(fs.openSync(index, "w"), indexContent);
   console.log("Finished");
 }
