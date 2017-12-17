@@ -1,16 +1,16 @@
 {
-  "name": "create-react-component",
-  "version": "0.0.4",
-  "description": "Generate react component with separate jsx template",
+  "name": "@mobylogix/react-component",
+  "version": "0.0.1",
+  "description": "Generate react component",
   "main": "createReactComponent.js",
   "preferGlobal": "true",
   "bin": {
-    "create-react-component" : "createReactComponent.js"
+    "react-component" : "createReactComponent.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Michal Zalecki <michal@michalzalecki.com>",
+  "author": "Arslan Nasir <arslan@mobylogix.com>",
   "license": "MIT",
   "dependencies": {
     "change-case": "^2.3.0",
