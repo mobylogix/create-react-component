@@ -13,20 +13,19 @@ Usage: createReactComponent [options] <name>
 ## Install
 
 ```
-npm i -g create-react-component
+npm i -g @mobylogix/react-component
 ```
 
 ## Example
 
 ```
-create-react-component Alert -s scss
+react-component Alert -s scss
 ```
 
 will create
 
 ```
 Alert
-├── Alert.js
 ├── Alert.jsx
 ├── Alert.scss
 └── index.js
