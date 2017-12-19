@@ -9,12 +9,13 @@ function run(name, options) {
 
   var dir       = path.resolve(name);
   var stylesExt = options.styles || "css";
+  var fileExt = options.extension || "js";
   var styles    = path.resolve(dir, name + "." + stylesExt)
   var jsx       = path.resolve(dir, name + ".jsx");
   var js        = path.resolve(dir, name + ".js");
   var index     = path.resolve(dir, "index.js");
 
-var jsxContent = `import React, {Component} from "react";
+var content = `import React, {Component} from "react";
 import "./${name}.${stylesExt}";
 
 class ${name} extends Component {
@@ -28,13 +29,11 @@ class ${name} extends Component {
 export default ${name};
 `;
 
-var indexContent = `import ${name} from "./${name}";
-export default ${name};
-`;
+var indexContent = `import "./${name}";`;
 
   fs.mkdirSync("./"+name);
   fs.openSync(styles, "w");
-  fs.writeSync(fs.openSync(jsx, "w"), jsxContent);
+  fs.writeSync(fs.openSync(fileExt, "w"), content);
   fs.writeSync(fs.openSync(index, "w"), indexContent);
   console.log("Finished");
 }
@@ -42,6 +41,7 @@ export default ${name};
 program
   .version('0.0.1')
   .option('-s, --styles [extension]', 'styles extension [default: css]')
+  .option('-e, --extension [extension]', 'file extension [default: js]')
   .arguments('<name>')
   .action(run)
   .parse(process.argv);
