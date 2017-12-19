@@ -10,6 +10,7 @@ Usage: createReactComponent [options] <name>
     -s, --styles [extension]  styles extension [default: css]
     -e, --ext [extension]  file extension [default: js]
     -p, --pure [extension], generate react PureComponent [default: Component]
+    -d, --dir [extension], generate directory structure
 
 ```
 

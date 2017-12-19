@@ -7,7 +7,12 @@ var changeCase = require("change-case");
 
 function run(name, options) {
 
-  var dir       = path.resolve(name);
+  if (!name) {
+    console.log("Name is required");
+    return;
+  }
+
+  var dir       = options.dir ? path.resolve(name.charAt(0).toLowerCase()) : './';
   var stylesExt = options.styles || "css";
   var fileExt = options.ext || "js";
   var pureCmpt = options.pure ? "PureComponent" : "Component";
@@ -17,9 +22,9 @@ function run(name, options) {
 
 var content = `import React, {${pureCmpt}} from "react";
 import autoBind from 'react-autobind';
-import "./${name}.${stylesExt}";
+import "./${name.charAt(0).toLowerCase()}.${stylesExt}";
 
-class ${name} extends ${pureCmpt} {
+class ${name.charAt(0).toUpperCase()} extends ${pureCmpt} {
   constructor(props) {
     super(props);
 
@@ -53,14 +58,12 @@ class ${name} extends ${pureCmpt} {
 
 export default ${name};
 `;
-
-var indexContent = `import "./${name}";`;
-
-  fs.mkdirSync("./"+name);
+  if (options.dir) {
+    fs.mkdirSync("./"+name);
+  }
   fs.openSync(styles, "w");
   fs.writeSync(fs.openSync(js, "w"), content);
-  fs.writeSync(fs.openSync(index, "w"), indexContent);
-  console.log("Finished");
+  console.log("Generated! --- Mobylogix");
 }
 
 program
@@ -68,6 +71,7 @@ program
   .option('-s, --styles [extension]', 'styles extension [default: css]')
   .option('-e, --ext [extension]', 'file extension [default: js]')
   .option('-p, --pure [extension]', 'generate pure react component [default: component]')
+  .option('-d, --dir [extension]', 'generate directory structure')
   .arguments('<name>')
   .action(run)
   .parse(process.argv);
