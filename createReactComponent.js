@@ -4,6 +4,7 @@ var fs         = require("fs");
 var path       = require("path");
 var program    = require("commander");
 var changeCase = require("change-case");
+var capitalize = require("capitalize");
 
 function run(name, options) {
 
@@ -12,7 +13,7 @@ function run(name, options) {
     return;
   }
 
-  var dir       = options.dir ? path.resolve(name.charAt(0).toLowerCase()) : './';
+  var dir       = options.dir ? path.resolve(name.toLowerCase()) : './';
   var stylesExt = options.styles || "css";
   var fileExt = options.ext || "js";
   var pureCmpt = options.pure ? "PureComponent" : "Component";
@@ -22,9 +23,9 @@ function run(name, options) {
 
 var content = `import React, {${pureCmpt}} from "react";
 import autoBind from 'react-autobind';
-import "./${name.charAt(0).toLowerCase()}.${stylesExt}";
+import "./${name.toLowerCase()}.${stylesExt}";
 
-class ${name.charAt(0).toUpperCase()} extends ${pureCmpt} {
+class ${capitalize(name)} extends ${pureCmpt} {
   constructor(props) {
     super(props);
 
@@ -51,12 +52,12 @@ class ${name.charAt(0).toUpperCase()} extends ${pureCmpt} {
 
   render() {
     return (
-      <div>Hello ${name}</div>
+      <div>Hello ${capitalize(name)}</div>
     );
   }
 }
 
-export default ${name};
+export default ${capitalize(name)};
 `;
   if (options.dir) {
     fs.mkdirSync("./"+name);

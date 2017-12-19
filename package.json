@@ -1,6 +1,6 @@
 {
   "name": "@mobylogix/react-component",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "repository": "https://github.com/mobylogix/react-component.git",
   "description": "Generate react component",
   "main": "createReactComponent.js",
@@ -14,6 +14,7 @@
   "author": "Arslan Nasir <arslan@mobylogix.com>",
   "license": "MIT",
   "dependencies": {
+    "capitalize": "^1.0.0",
     "change-case": "^2.3.0",
     "commander": "^2.9.0",
     "react-autobind": "^1.0.6"
