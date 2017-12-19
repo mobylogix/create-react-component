@@ -23,7 +23,7 @@ npm i -g @mobylogix/react-component
 ## Example
 
 ```
-react-component Alert -e jsx -s scss
+react-component Alert -e jsx -s scss -p -d
 ```
 
 will create
@@ -32,5 +32,5 @@ will create
 Alert
 ├── Alert.jsx
 ├── Alert.scss
-└── index.js
+
 ```
