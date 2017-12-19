@@ -21,7 +21,7 @@ import "./${name}.${stylesExt}";
 class ${name} extends Component {
   render() {
     return (
-      <div>{`Hello $name`}</div>
+      <div>Hello ${name}</div>
     );
   }
 }
