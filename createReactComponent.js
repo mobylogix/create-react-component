@@ -22,6 +22,7 @@ function run(name, options) {
   var index     = path.resolve(dir, "index.js");
 
 var content = `import React, {${pureCmpt}} from 'react';
+import PropTypes from 'prop-types';
 import {_} from 'underscrore';
 import moment from 'moment';
 import autoBind from 'react-autobind';
@@ -58,6 +59,10 @@ class ${capitalize(name)} extends ${pureCmpt} {
     );
   }
 }
+
+${capitalize(name)}.propTypes = {
+
+};
 
 export default ${capitalize(name)};
 `;

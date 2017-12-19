@@ -1,6 +1,6 @@
 {
   "name": "@mobylogix/react-component",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": "https://github.com/mobylogix/react-component.git",
   "description": "Generate react component",
   "main": "createReactComponent.js",
@@ -17,6 +17,9 @@
     "capitalize": "^1.0.0",
     "change-case": "^2.3.0",
     "commander": "^2.9.0",
-    "react-autobind": "^1.0.6"
+    "moment": "^2.20.1",
+    "prop-types": "^15.6.0",
+    "react-autobind": "^1.0.6",
+    "underscore": "^1.8.3"
   }
 }
