@@ -23,7 +23,7 @@ function run(name, options) {
 
 var content = `import React, {${pureCmpt}} from 'react';
 import PropTypes from 'prop-types';
-import {_} from 'underscrore';
+import {_} from 'underscore';
 import moment from 'moment';
 import autoBind from 'react-autobind';
 import './${name.toLowerCase()}.${stylesExt}';
