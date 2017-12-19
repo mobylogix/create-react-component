@@ -13,7 +13,7 @@ function run(name, options) {
     return;
   }
 
-  var dir       = options.dir ? path.resolve(name.toLowerCase()) : './';
+  var dir       = options.dir ? path.resolve(name.toLowerCase()) : '';
   var stylesExt = options.styles || "css";
   var fileExt = options.ext || "js";
   var pureCmpt = options.pure ? "PureComponent" : "Component";
@@ -66,8 +66,8 @@ ${capitalize(name)}.propTypes = {
 
 export default ${capitalize(name)};
 `;
-  if (options.dir) {
-    fs.mkdirSync("./"+name);
+  if (dir != '') {
+    fs.mkdirSync("./"+name.toLowerCase());
   }
   fs.openSync(styles, "w");
   fs.writeSync(fs.openSync(js, "w"), content);
