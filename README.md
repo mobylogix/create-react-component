@@ -8,7 +8,8 @@ Usage: createReactComponent [options] <name>
     -h, --help                output usage information
     -V, --version             output the version number
     -s, --styles [extension]  styles extension [default: css]
-    -e, --extension [extension]  file extension [default: js]
+    -e, --ext [extension]  file extension [default: js]
+
 ```
 
 ## Install
