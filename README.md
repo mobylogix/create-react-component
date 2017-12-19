@@ -9,6 +9,7 @@ Usage: createReactComponent [options] <name>
     -V, --version             output the version number
     -s, --styles [extension]  styles extension [default: css]
     -e, --ext [extension]  file extension [default: js]
+    -p, --pure [extension], generate react PureComponent [default: Component]
 
 ```
 
