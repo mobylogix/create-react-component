@@ -9,10 +9,9 @@ function run(name, options) {
 
   var dir       = path.resolve(name);
   var stylesExt = options.styles || "css";
-  var fileExt = options.extension || "js";
+  var fileExt = options.ext || "js";
   var styles    = path.resolve(dir, name + "." + stylesExt)
-  var jsx       = path.resolve(dir, name + ".jsx");
-  var js        = path.resolve(dir, name + ".js");
+  var js        = path.resolve(dir, name + "."+ fileExt);
   var index     = path.resolve(dir, "index.js");
 
 var content = `import React, {Component} from "react";
@@ -33,7 +32,7 @@ var indexContent = `import "./${name}";`;
 
   fs.mkdirSync("./"+name);
   fs.openSync(styles, "w");
-  fs.writeSync(fs.openSync(fileExt, "w"), content);
+  fs.writeSync(fs.openSync(js, "w"), content);
   fs.writeSync(fs.openSync(index, "w"), indexContent);
   console.log("Finished");
 }
@@ -41,7 +40,7 @@ var indexContent = `import "./${name}";`;
 program
   .version('0.0.1')
   .option('-s, --styles [extension]', 'styles extension [default: css]')
-  .option('-e, --extension [extension]', 'file extension [default: js]')
+  .option('-e, --ext [extension]', 'file extension [default: js]')
   .arguments('<name>')
   .action(run)
   .parse(process.argv);
