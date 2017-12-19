@@ -1,7 +1,7 @@
 # Generate React Component
 
 ```
-Usage: createReactComponent [options] <name>
+Usage: react-component <name> [options]
 
   Options:
 
@@ -31,6 +31,6 @@ will create
 ```
 Alert
 ├── Alert.jsx
-├── Alert.scss
+├── alert.scss
 
 ```
