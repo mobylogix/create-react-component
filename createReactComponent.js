@@ -10,7 +10,7 @@ function run(name, options) {
   var dir       = path.resolve(name);
   var stylesExt = options.styles || "css";
   var fileExt = options.ext || "js";
-  var pureCmpt = options.pure ? "PureComponent" || "Component";
+  var pureCmpt = options.pure ? "PureComponent" : "Component";
   var styles    = path.resolve(dir, name + "." + stylesExt)
   var js        = path.resolve(dir, name + "."+ fileExt);
   var index     = path.resolve(dir, "index.js");
