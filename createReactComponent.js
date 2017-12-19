@@ -21,9 +21,11 @@ function run(name, options) {
   var js        = path.resolve(dir, capitalize(name) + "."+ fileExt);
   var index     = path.resolve(dir, "index.js");
 
-var content = `import React, {${pureCmpt}} from "react";
+var content = `import React, {${pureCmpt}} from 'react';
+import {_} from 'underscrore';
+import moment from 'moment';
 import autoBind from 'react-autobind';
-import "./${name.toLowerCase()}.${stylesExt}";
+import './${name.toLowerCase()}.${stylesExt}';
 
 class ${capitalize(name)} extends ${pureCmpt} {
   constructor(props) {
