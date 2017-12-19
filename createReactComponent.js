@@ -18,7 +18,7 @@ function run(name, options) {
   var fileExt = options.ext || "js";
   var pureCmpt = options.pure ? "PureComponent" : "Component";
   var styles    = path.resolve(dir, name + "." + stylesExt)
-  var js        = path.resolve(dir, name + "."+ fileExt);
+  var js        = path.resolve(dir, capitalize(name) + "."+ fileExt);
   var index     = path.resolve(dir, "index.js");
 
 var content = `import React, {${pureCmpt}} from "react";
