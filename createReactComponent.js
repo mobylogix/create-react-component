@@ -17,7 +17,7 @@ function run(name, options) {
   var stylesExt = options.styles || "css";
   var fileExt = options.ext || "js";
   var pureCmpt = options.pure ? "PureComponent" : "Component";
-  var styles    = path.resolve(dir, name + "." + stylesExt)
+  var styles    = path.resolve(dir, name.toLowerCase() + "." + stylesExt)
   var js        = path.resolve(dir, capitalize(name) + "."+ fileExt);
   var index     = path.resolve(dir, "index.js");
 
